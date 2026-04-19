@@ -1,149 +1,192 @@
-# Smart Study Tracker
+# 🌆 Lucknow.today
 
-Smart Study Tracker is a web-based application designed to provide an accurate view of study productivity. It goes beyond basic timers by tracking focus time, detecting distractions, and generating behavioral insights.
-
----
-
-## Overview
-
-Most study trackers measure total time, which often leads to misleading conclusions about productivity. This application addresses that limitation by distinguishing between active focus and distractions, enabling users to evaluate how effectively they study rather than how long.
+**Lucknow.today** is a modern event discovery platform that aggregates and displays all events happening in Lucknow in one place.
+It helps users quickly find concerts, workshops, comedy shows, tech events, and more — without scrolling endlessly across multiple platforms.
 
 ---
 
-## Key Features
+## 🚀 Features
 
-### Focus Session Tracking
+* 🔎 **Smart Event Discovery**
 
-* Start, pause, and end study sessions
-* Assign subjects (e.g., DSA, ML, OS)
-* Optional goal setting for each session
-* Real-time session timer
+  * Find events happening *today, this weekend, or upcoming*
 
-### Distraction Detection
+* 🧠 **Multi-Source Aggregation**
 
-* Tracks tab switching using browser visibility APIs
-* Detects inactivity (idle time)
-* Records:
+  * Collects events from platforms like:
 
-  * Total distraction time
-  * Number of interruptions
+    * BookMyShow
+    * Paytm Insider
+    * Meetup
+    * Facebook Events
 
-### Dashboard
+* 🧹 **Clean & Structured Data**
 
-* Total study time (daily)
-* Focused time
-* Distraction time
-* Efficiency percentage
+  * Normalized dates and formats
+  * Duplicate event removal
+  * Categorized automatically
 
-Visualizations:
+* 🎨 **Modern UI/UX**
 
-* Subject-wise distribution (pie chart)
-* Daily study trends (line graph)
+  * Responsive design (mobile-first)
+  * Dark & Light mode
+  * Smooth animations
 
-### Insights Engine
+* 🎟️ **Detailed Event Pages**
 
-Rule-based analysis to generate insights such as:
+  * Event description
+  * Date & time
+  * Venue with map
+  * Redirect to booking source
 
-* Peak productivity hours
-* High-distraction time periods
-* Changes in efficiency over time
+* 📅 **Advanced Filters**
 
-### Session History
-
-* Complete log of study sessions
-* Filter by subject or date
-* Session-level analytics
+  * Category-based filtering
+  * Free vs Paid events
+  * Date filters (Today, Weekend)
 
 ---
 
-## Core Logic
-
-```
-focus_time = total_time - distraction_time
-efficiency = (focus_time / total_time) * 100
-```
-
----
-
-## Technology Stack
+## 🛠️ Tech Stack
 
 ### Frontend
 
-* React (Vite)
+* Next.js 14 (App Router)
 * Tailwind CSS
+* ShadCN UI
 * Framer Motion
-* Recharts
 
 ### Backend
 
-* Node.js
-* Express.js
+* Node.js / Next.js API Routes
 
 ### Database
 
-* MongoDB
+* MongoDB (Mongoose)
+
+### Scraping
+
+* Playwright / Puppeteer
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
 ```
-/client
-  /components
-  /pages
-  /assets
-
-/server
-  /routes
-  /models
-  /controllers
+lucknow-today/
+│
+├── app/                  # Next.js app router
+├── components/          # Reusable UI components
+├── lib/                 # Utilities & helpers
+├── models/              # MongoDB schemas
+├── pages/api/           # Backend API routes
+├── scraper/             # Scraping scripts
+├── public/              # Static assets
+└── styles/              # Global styles
 ```
 
 ---
 
-## Installation
+## ⚙️ Installation & Setup
 
-### Clone Repository
+### 1. Clone the repository
 
+```bash
+git clone https://github.com/your-username/lucknow-today.git
+cd lucknow-today
 ```
-git clone https://github.com/your-username/smart-study-tracker.git
-cd smart-study-tracker
-```
 
-### Backend Setup
+### 2. Install dependencies
 
-```
-cd server
+```bash
 npm install
+```
+
+### 3. Setup environment variables
+
+Create a `.env.local` file:
+
+```
+MONGODB_URI=your_mongodb_connection_string
+```
+
+---
+
+### 4. Run the development server
+
+```bash
 npm run dev
 ```
 
-### Frontend Setup
+App will be live at:
 
 ```
-cd client
-npm install
-npm run dev
+http://localhost:3000
 ```
 
 ---
 
-## Future Enhancements
+## 🤖 Running the Scraper
 
-* Browser extension for enhanced tracking
-* AI-based personalized recommendations
-* Streak tracking and performance analytics
-* Notification and reminder system
-* Ambient study environment features
+To fetch latest events:
+
+```bash
+node scraper/index.js
+```
+
+Or trigger via API:
+
+```
+POST /api/scrape
+```
 
 ---
 
-## Purpose
+## 🔌 API Endpoints
 
-This project is intended to provide an honest assessment of study behavior by focusing on actual productivity rather than inflated study time.
+| Method | Endpoint                   | Description        |
+| ------ | -------------------------- | ------------------ |
+| GET    | /api/events                | Get all events     |
+| GET    | /api/events?category=music | Filter by category |
+| GET    | /api/events?date=today     | Events for today   |
+| GET    | /api/events/:id            | Event details      |
+| POST   | /api/scrape                | Trigger scraper    |
 
 ---
 
-## License
+## 🔄 Automation
 
-This project is intended for educational and development purposes.
+* Scraper runs every 6 hours using cron jobs
+* Keeps database updated with latest events
+
+---
+
+## ⚠️ Disclaimer
+
+* This project aggregates publicly available event data
+* All event bookings redirect to original platforms
+* Proper attribution is maintained
+
+---
+
+## 🌟 Future Enhancements
+
+* AI-based event recommendations
+* User accounts & saved events
+* Email / WhatsApp alerts
+* Organizer dashboard (post your own event)
+* Mobile app version
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+Feel free to fork the repo and submit a pull request.
+
+---
+
+## 📌 Author
+
+Built with 💻 by Jagriti
+
